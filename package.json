@@ -22,6 +22,7 @@
     "next-themes": "^0.3.0",
     "react": "^18",
     "react-dom": "^18",
+    "react-email-editor": "^1.7.11",
     "shadcn-ui": "^0.8.0",
     "tailwind-merge": "^2.4.0",
     "tailwindcss-animate": "^1.0.7"
