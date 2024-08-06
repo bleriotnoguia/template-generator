@@ -1,0 +1,346 @@
+{
+  "counters": {
+    "u_row": 9,
+    "u_column": 14,
+    "u_content_menu": 1,
+    "u_content_text": 26,
+    "u_content_image": 8,
+    "u_content_button": 2,
+    "u_content_divider": 3,
+    "u_content_heading": 4
+  },
+  "body": {
+    "id": "0QFAKPxyzM",
+    "rows": [
+      {
+        "id": "DboAlzpgnM",
+        "cells": [1],
+        "columns": [
+          {
+            "id": "a-ECp5oAgp",
+            "contents": [
+              {
+                "id": "Q0qduX3A4p",
+                "type": "heading",
+                "values": {
+                  "containerPadding": "10px",
+                  "anchor": "",
+                  "headingType": "h1",
+                  "fontSize": "22px",
+                  "textAlign": "center",
+                  "lineHeight": "140%",
+                  "linkStyle": {
+                    "inherit": true,
+                    "linkColor": "#0000ee",
+                    "linkHoverColor": "#0000ee",
+                    "linkUnderline": true,
+                    "linkHoverUnderline": true
+                  },
+                  "displayCondition": null,
+                  "_meta": {
+                    "htmlID": "u_content_heading_4",
+                    "htmlClassNames": "u_content_heading"
+                  },
+                  "selectable": true,
+                  "draggable": true,
+                  "duplicatable": true,
+                  "deletable": true,
+                  "hideable": true,
+                  "text": "<span>Default Template</span>"
+                }
+              },
+              {
+                "id": "QKW1-bgdhE",
+                "type": "divider",
+                "values": {
+                  "width": "100%",
+                  "border": {
+                    "borderTopWidth": "1px",
+                    "borderTopStyle": "solid",
+                    "borderTopColor": "#BBBBBB"
+                  },
+                  "textAlign": "center",
+                  "containerPadding": "10px",
+                  "anchor": "",
+                  "displayCondition": null,
+                  "_meta": {
+                    "htmlID": "u_content_divider_2",
+                    "htmlClassNames": "u_content_divider"
+                  },
+                  "selectable": true,
+                  "draggable": true,
+                  "duplicatable": true,
+                  "deletable": true,
+                  "hideable": true
+                }
+              }
+            ],
+            "values": {
+              "backgroundColor": "",
+              "padding": "0px",
+              "border": {},
+              "borderRadius": "0px",
+              "_meta": {
+                "htmlID": "u_column_14",
+                "htmlClassNames": "u_column"
+              }
+            }
+          }
+        ],
+        "values": {
+          "displayCondition": null,
+          "columns": false,
+          "backgroundColor": "",
+          "columnsBackgroundColor": "",
+          "backgroundImage": {
+            "url": "",
+            "fullWidth": true,
+            "repeat": "no-repeat",
+            "size": "custom",
+            "position": "center"
+          },
+          "padding": "0px",
+          "anchor": "",
+          "hideDesktop": false,
+          "_meta": {
+            "htmlID": "u_row_9",
+            "htmlClassNames": "u_row"
+          },
+          "selectable": true,
+          "draggable": true,
+          "duplicatable": true,
+          "deletable": true,
+          "hideable": true
+        }
+      },
+      {
+        "id": "-Pm2fEb9Wp",
+        "cells": [1],
+        "columns": [
+          {
+            "id": "aREOk3UC4g",
+            "contents": [
+              {
+                "id": "YREQx0NZvP",
+                "type": "text",
+                "values": {
+                  "containerPadding": "10px",
+                  "anchor": "",
+                  "fontSize": "14px",
+                  "textAlign": "center",
+                  "lineHeight": "140%",
+                  "linkStyle": {
+                    "inherit": true,
+                    "linkColor": "#0000ee",
+                    "linkHoverColor": "#0000ee",
+                    "linkUnderline": true,
+                    "linkHoverUnderline": true
+                  },
+                  "displayCondition": null,
+                  "_meta": {
+                    "htmlID": "u_content_text_26",
+                    "htmlClassNames": "u_content_text"
+                  },
+                  "selectable": true,
+                  "draggable": true,
+                  "duplicatable": true,
+                  "deletable": true,
+                  "hideable": true,
+                  "text": "<p style=\"line-height: 140%;\">This is a new Text block. Change the text.</p>"
+                }
+              },
+              {
+                "id": "lBjFWWciFH",
+                "type": "divider",
+                "values": {
+                  "width": "100%",
+                  "border": {
+                    "borderTopWidth": "1px",
+                    "borderTopStyle": "solid",
+                    "borderTopColor": "#BBBBBB"
+                  },
+                  "textAlign": "center",
+                  "containerPadding": "10px",
+                  "anchor": "",
+                  "displayCondition": null,
+                  "_meta": {
+                    "htmlID": "u_content_divider_3",
+                    "htmlClassNames": "u_content_divider"
+                  },
+                  "selectable": true,
+                  "draggable": true,
+                  "duplicatable": true,
+                  "deletable": true,
+                  "hideable": true
+                }
+              },
+              {
+                "id": "wQof8hV6QL",
+                "type": "heading",
+                "values": {
+                  "containerPadding": "0px",
+                  "anchor": "",
+                  "headingType": "h2",
+                  "fontWeight": 400,
+                  "fontSize": "20px",
+                  "color": "#ffffff",
+                  "textAlign": "center",
+                  "lineHeight": "140%",
+                  "linkStyle": {
+                    "inherit": true,
+                    "linkColor": "#0000ee",
+                    "linkHoverColor": "#0000ee",
+                    "linkUnderline": true,
+                    "linkHoverUnderline": true
+                  },
+                  "hideDesktop": false,
+                  "displayCondition": null,
+                  "_meta": {
+                    "htmlID": "u_content_heading_1",
+                    "htmlClassNames": "u_content_heading"
+                  },
+                  "selectable": true,
+                  "draggable": true,
+                  "duplicatable": true,
+                  "deletable": true,
+                  "hideable": true,
+                  "text": "<span><span><span><span><span><span><span>EMAIL MARKETING PRACTISES TO<br />GENERATE INCREASE IN SALES</span></span></span></span></span></span></span>",
+                  "_override": {
+                    "mobile": {
+                      "fontSize": "45px"
+                    }
+                  }
+                }
+              },
+              {
+                "id": "DaFuD1__4R",
+                "type": "text",
+                "values": {
+                  "containerPadding": "10px",
+                  "anchor": "",
+                  "fontSize": "14px",
+                  "textAlign": "center",
+                  "lineHeight": "140%",
+                  "linkStyle": {
+                    "inherit": true,
+                    "linkColor": "#0000ee",
+                    "linkHoverColor": "#0000ee",
+                    "linkUnderline": true,
+                    "linkHoverUnderline": true
+                  },
+                  "hideDesktop": false,
+                  "displayCondition": null,
+                  "_meta": {
+                    "htmlID": "u_content_text_25",
+                    "htmlClassNames": "u_content_text"
+                  },
+                  "selectable": true,
+                  "draggable": true,
+                  "duplicatable": true,
+                  "deletable": true,
+                  "hideable": true,
+                  "text": "<p style=\"line-height: 140%;\">This is a new Text block. Change the text.</p>"
+                }
+              }
+            ],
+            "values": {
+              "_meta": {
+                "htmlID": "u_column_1",
+                "htmlClassNames": "u_column"
+              },
+              "border": {},
+              "padding": "0px",
+              "backgroundColor": ""
+            }
+          }
+        ],
+        "values": {
+          "displayCondition": null,
+          "columns": false,
+          "backgroundColor": "",
+          "columnsBackgroundColor": "",
+          "backgroundImage": {
+            "url": "",
+            "fullWidth": true,
+            "repeat": "no-repeat",
+            "size": "custom",
+            "position": "center"
+          },
+          "padding": "0px",
+          "anchor": "",
+          "hideDesktop": false,
+          "_meta": {
+            "htmlID": "u_row_1",
+            "htmlClassNames": "u_row"
+          },
+          "selectable": true,
+          "draggable": true,
+          "duplicatable": true,
+          "deletable": true,
+          "hideable": true
+        }
+      }
+    ],
+    "headers": [],
+    "footers": [],
+    "values": {
+      "popupPosition": "center",
+      "popupWidth": "600px",
+      "popupHeight": "auto",
+      "borderRadius": "10px",
+      "contentAlign": "center",
+      "contentVerticalAlign": "center",
+      "contentWidth": 700,
+      "fontFamily": {
+        "label": "Helvetica",
+        "value": "helvetica,sans-serif",
+        "url": "",
+        "weights": null,
+        "defaultFont": true
+      },
+      "textColor": "#ffffff",
+      "popupBackgroundColor": "#FFFFFF",
+      "popupBackgroundImage": {
+        "url": "",
+        "fullWidth": true,
+        "repeat": "no-repeat",
+        "size": "cover",
+        "position": "center"
+      },
+      "popupOverlay_backgroundColor": "rgba(0, 0, 0, 0.1)",
+      "popupCloseButton_position": "top-right",
+      "popupCloseButton_backgroundColor": "#DDDDDD",
+      "popupCloseButton_iconColor": "#000000",
+      "popupCloseButton_borderRadius": "0px",
+      "popupCloseButton_margin": "0px",
+      "popupCloseButton_action": {
+        "name": "close_popup",
+        "attrs": {
+          "onClick": "document.querySelector('.u-popup-container').style.display = 'none';"
+        }
+      },
+      "backgroundColor": "#000000",
+      "preheaderText": "",
+      "linkStyle": {
+        "body": true,
+        "linkColor": "#0071e3",
+        "linkHoverColor": "#0000ee",
+        "linkUnderline": true,
+        "linkHoverUnderline": true,
+        "inherit": false
+      },
+      "backgroundImage": {
+        "url": "",
+        "fullWidth": true,
+        "repeat": "no-repeat",
+        "size": "custom",
+        "position": "center"
+      },
+      "_meta": {
+        "htmlID": "u_body",
+        "htmlClassNames": "u_body"
+      }
+    }
+  },
+  "schemaVersion": 16
+}
