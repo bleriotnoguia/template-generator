@@ -77,15 +77,15 @@ export default function CustomEmailEditor({
           to: "nstevebleriot@yahoo.fr",
           from: "contact@bleriotnoguia.com",
           subject: "Email from Template Generator",
-          html: html,
+          html: html as string,
         };
         try {
           let res = await sendEmail(emailDetails);
-          console.log("Email sent successfully!");
+          console.log("(client) Email sent successfully !");
           console.log("Response: ", res);
           // Perform any additional actions after successful email sending
         } catch (error) {
-          console.error("Error sending email:", error);
+          console.error("(client) Error sending email:", error);
           // Handle error case
         }
       }
