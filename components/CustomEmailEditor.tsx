@@ -32,7 +32,7 @@ export default function CustomEmailEditor({
 }) {
   const emailEditorRef = React.useRef<EditorRef | null>(null);
   const { templates, setTemplates } = useTemplateContext();
-  const { settings } = useSettingsContext();
+  const { settings, variables } = useSettingsContext();
 
   const { theme } = useTheme();
 
@@ -70,9 +70,17 @@ export default function CustomEmailEditor({
     unlayer?.exportHtml((data: any) => {
       const { html } = data;
 
+      let newHtml = html;
+      variables.forEach((variable: { key: string; value: string }) => {
+        newHtml = html.replace(
+          new RegExp(`{{${variable.key}}}`, "g"),
+          variable.value
+        );
+      });
+
       var tempEl = document.createElement("a");
 
-      tempEl.href = "data:text/html," + encodeURI(html);
+      tempEl.href = "data:text/html," + encodeURI(newHtml);
       tempEl.target = "_blank";
       tempEl.download = "template.html";
       tempEl.click();
@@ -92,11 +100,20 @@ export default function CustomEmailEditor({
           router.push("/settings");
           return;
         }
+
+        let newHtml = html;
+        variables.forEach((variable: { key: string; value: string }) => {
+          newHtml = html.replace(
+            new RegExp(`{{${variable.key}}}`, "g"),
+            variable.value
+          );
+        });
+
         const emailDetails = {
           to: toEmail,
           from: "contact@bleriotnoguia.com",
           subject: "Email from Template Generator",
-          html: html,
+          html: newHtml,
           toName: settings.name,
         };
         try {
