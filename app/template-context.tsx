@@ -18,7 +18,9 @@ export const TemplateProvider = ({
   children: React.ReactNode;
   initialState?: string[];
 }) => {
-  const [templates, setTemplates] = useState<string[]>(initialState);
+  const [templates, setTemplates] = useState<string[]>(
+    JSON.parse(localStorage.getItem("templates") ?? "null") || initialState
+  );
 
   return (
     <TemplateContext.Provider
