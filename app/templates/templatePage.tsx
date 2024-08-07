@@ -1,3 +1,5 @@
+"use client";
+
 import ModeToggle from "@/components/ModeToggle";
 import { Button } from "@/components/ui/button";
 import { FileText, Home, Trash2 } from "lucide-react";
