@@ -85,12 +85,12 @@ export default function CustomEmailEditor({
           Messages: [
             {
               From: {
-                Email: "nstevebleriot@yahoo.fr",
+                Email: "contact@bleriotnoguia.com",
                 Name: "Email Temp Generator",
               },
               To: [
                 {
-                  Email: "contact@bleriotnoguia.com",
+                  Email: "nstevebleriot@yahoo.fr",
                   Name: "Blériot Noguia",
                 },
               ],
