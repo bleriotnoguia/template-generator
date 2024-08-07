@@ -1,7 +1,14 @@
 "use client";
 
+import dynamic from "next/dynamic";
 import * as React from "react";
-import CustomEmailEditor from "@/components/CustomEmailEditor";
+
+const CustomEmailEditor = dynamic(
+  () => import("@/components/CustomEmailEditor"),
+  {
+    loading: () => <p>Loading...</p>,
+  }
+);
 
 export default function Page() {
   return <CustomEmailEditor />;
