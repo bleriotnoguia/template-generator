@@ -12,8 +12,10 @@ export default function TemplatePage() {
   const router = useRouter();
 
   const deleteAll = () => {
-    window.localStorage.removeItem("templates");
-    setTemplates([]);
+    if (typeof window !== "undefined") {
+      window.localStorage.removeItem("templates");
+      setTemplates([]);
+    }
     alert("All templates have been deleted.");
     router.push("/");
   };
