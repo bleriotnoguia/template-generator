@@ -12,7 +12,7 @@ export default function Page() {
   const router = useRouter();
 
   const deleteAll = () => {
-    localStorage.removeItem("templates");
+    window.localStorage.removeItem("templates");
     setTemplates([]);
     alert("All templates have been deleted.");
     router.push("/");

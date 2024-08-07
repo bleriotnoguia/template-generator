@@ -19,7 +19,8 @@ export const TemplateProvider = ({
   initialState?: string[];
 }) => {
   const [templates, setTemplates] = useState<string[]>(
-    JSON.parse(localStorage.getItem("templates") ?? "null") || initialState
+    JSON.parse(window.localStorage.getItem("templates") ?? "null") ||
+      initialState
   );
 
   return (

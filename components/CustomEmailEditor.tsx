@@ -30,7 +30,7 @@ export default function CustomEmailEditor({
     unlayer?.saveDesign((design: any) => {
       setTemplates([...templates, JSON.stringify(design)]);
       // also save in local storage
-      localStorage.setItem(
+      window.localStorage.setItem(
         "templates",
         JSON.stringify([...templates, JSON.stringify(design)])
       );
@@ -46,7 +46,7 @@ export default function CustomEmailEditor({
       templates[Number(templateId) - 1] = JSON.stringify(design);
       setTemplates(templates);
       // also save in local storage
-      localStorage.setItem("templates", JSON.stringify(templates));
+      window.localStorage.setItem("templates", JSON.stringify(templates));
       alert("The design has been updated.");
     });
   };
