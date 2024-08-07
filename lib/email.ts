@@ -16,7 +16,7 @@ export async function sendEmail({
   to: string;
   from: string;
   subject: string;
-  html: any;
+  html: string;
 }) {
   const emailData = {
     Messages: [
@@ -32,7 +32,7 @@ export async function sendEmail({
           },
         ],
         Subject: subject,
-        HtmlPart: JSON.parse(JSON.stringify(html)),
+        HtmlPart: html,
       },
     ],
   };
@@ -42,11 +42,11 @@ export async function sendEmail({
       .post("send", { version: "v3.1" })
       .request(emailData);
     // alert('Email sent successfully!');
-    console.log("Email sent successfully!");
+    console.log("(server) Email sent successfully!");
     return result;
   } catch (error) {
     // alert('Error sending email');
-    console.error("Error sending email:", error);
+    console.error("(server) Error sending email:", error);
     throw error;
   }
 }
