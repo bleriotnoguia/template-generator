@@ -77,7 +77,7 @@ export default function CustomEmailEditor({
           to: "nstevebleriot@yahoo.fr",
           from: "contact@bleriotnoguia.com",
           subject: "Email from Template Generator",
-          html: JSON.stringify(html),
+          html: "Simple test email",
         };
         try {
           let res = await sendEmail(emailDetails);
