@@ -5,6 +5,8 @@ import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 import { TemplateProvider } from "./template-context";
 import { ToastContainer } from "react-toastify";
+import { SettingsProvider } from "./settings-context";
+import "react-toastify/dist/ReactToastify.css";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -41,7 +43,9 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <TemplateProvider>{children}</TemplateProvider>
+          <TemplateProvider>
+            <SettingsProvider>{children}</SettingsProvider>
+          </TemplateProvider>
         </ThemeProvider>
         <ToastContainer />
       </body>

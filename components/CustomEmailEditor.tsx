@@ -4,7 +4,16 @@ import * as React from "react";
 
 import { useRouter } from "next/navigation";
 import EmailEditor, { EditorRef, EmailEditorProps } from "react-email-editor";
-import { Download, Edit, Home, List, Plus, Save, Send } from "lucide-react";
+import {
+  Download,
+  Edit,
+  Home,
+  List,
+  Plus,
+  Save,
+  Send,
+  Settings,
+} from "lucide-react";
 import { Button } from "@/components/ui/button";
 import ModeToggle from "@/components/ModeToggle";
 import { useTheme } from "next-themes";
@@ -13,6 +22,8 @@ import { useTemplateContext } from "../app/template-context";
 import { Alert, AlertTitle } from "@/components/ui/alert";
 import { sendEmail } from "@/lib/email";
 import { toast } from "react-toastify";
+import { useSettingsContext } from "@/app/settings-context";
+import { validateEmail } from "@/lib/utils";
 
 export default function CustomEmailEditor({
   templateId,
@@ -21,6 +32,7 @@ export default function CustomEmailEditor({
 }) {
   const emailEditorRef = React.useRef<EditorRef | null>(null);
   const { templates, setTemplates } = useTemplateContext();
+  const { settings } = useSettingsContext();
 
   const { theme } = useTheme();
 
@@ -74,11 +86,18 @@ export default function CustomEmailEditor({
       const { html } = data;
       async function send() {
         // Process form data and prepare email details
+        const toEmail = settings.email;
+        if (!toEmail || !validateEmail(toEmail)) {
+          toast.info("Please update the recipient email in settings.");
+          router.push("/settings");
+          return;
+        }
         const emailDetails = {
-          to: "nstevebleriot@yahoo.fr",
+          to: toEmail,
           from: "contact@bleriotnoguia.com",
           subject: "Email from Template Generator",
           html: html,
+          toName: settings.name,
         };
         try {
           // Perform any additional actions after successful email sending
@@ -160,6 +179,10 @@ export default function CustomEmailEditor({
             <Download className="w-4 h-4 mr-2" /> Export HTML
           </Button>
           <ModeToggle />
+
+          <Button variant="outline" onClick={() => router.push("/settings")}>
+            <Settings className="w-4 h-4 mr-2" />
+          </Button>
         </div>
       </div>
       <div className="editor-container">

@@ -12,23 +12,25 @@ export async function sendEmail({
   from,
   subject,
   html,
+  toName,
 }: {
   to: string;
   from: string;
   subject: string;
   html: any;
+  toName?: string;
 }) {
   const emailData = {
     Messages: [
       {
         From: {
           Email: from,
-          Name: "Blériot Noguia",
+          Name: "Email Template Generator",
         },
         To: [
           {
             Email: to,
-            Name: "Recipient Name",
+            Name: toName ?? "Recipient Name",
           },
         ],
         Subject: subject,
