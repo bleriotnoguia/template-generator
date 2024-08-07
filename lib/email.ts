@@ -1,3 +1,5 @@
+"use server";
+
 import mailjet from "node-mailjet";
 
 const mailjetClient = mailjet.apiConnect(
