@@ -11,6 +11,7 @@ import { useTheme } from "next-themes";
 import defaultTemplate from "../data/defaultTemplate.json";
 import { useTemplateContext } from "../app/template-context";
 import { Alert, AlertTitle } from "@/components/ui/alert";
+import { sendEmail } from "@/lib/email";
 
 export default function CustomEmailEditor({
   templateId,
@@ -70,46 +71,24 @@ export default function CustomEmailEditor({
 
     unlayer?.exportHtml((data: any) => {
       const { html } = data;
-      // Mailjet API integration
-      fetch("https://api.mailjet.com/v3.1/send", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization:
-            "Basic " +
-            btoa(
-              "6c5a769efc45d799d13a22a3f22a1506:28e72cdd08c7bd24186cdbf7a2fb8a02"
-            ),
-        },
-        body: JSON.stringify({
-          Messages: [
-            {
-              From: {
-                Email: "contact@bleriotnoguia.com",
-                Name: "Email Temp Generator",
-              },
-              To: [
-                {
-                  Email: "nstevebleriot@yahoo.fr",
-                  Name: "Blériot Noguia",
-                },
-              ],
-              Subject: "Test Email",
-              HTMLPart: html,
-            },
-          ],
-        }),
-        mode: "no-cors",
-      })
-        .then((response) => response.json())
-        .then((data) => {
-          console.log("Success:", data);
-          alert("Test email sent successfully.");
-        })
-        .catch((error) => {
-          console.error("Error:", error);
-          alert("An error occurred while sending the test email.");
-        });
+      async function send() {
+        // Process form data and prepare email details
+        const emailDetails = {
+          to: "nstevebleriot@yahoo.fr",
+          from: "contact@bleriotnoguia.com",
+          subject: "Email from Template Generator",
+          html: html,
+        };
+        try {
+          await sendEmail(emailDetails);
+          console.log("Email sent successfully!");
+          // Perform any additional actions after successful email sending
+        } catch (error) {
+          console.error("Error sending email:", error);
+          // Handle error case
+        }
+      }
+      send();
     });
   };
 
