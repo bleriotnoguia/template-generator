@@ -40,12 +40,13 @@ export async function sendEmail({
   };
 
   try {
-    const result = await mailjetClient
+    const response = await mailjetClient
       .post("send", { version: "v3.1" })
       .request(emailData);
+    console.log("Email sent successfully:", response.body);
+
     return {
       status: "success",
-      data: result.body,
       message: "Email sent successfully",
     };
   } catch (error) {
