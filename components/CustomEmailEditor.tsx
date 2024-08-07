@@ -49,7 +49,7 @@ export default function CustomEmailEditor({
         JSON.stringify([...templates, JSON.stringify(design)])
       );
       router.push("/templates/" + (templates.length + 1));
-      alert("The design has been saved.");
+      toast.success("The design has been saved.");
     });
   };
 
@@ -61,7 +61,7 @@ export default function CustomEmailEditor({
       setTemplates(templates);
       // also save in local storage
       window.localStorage.setItem("templates", JSON.stringify(templates));
-      alert("The design has been updated.");
+      toast.success("The design has been updated.");
     });
   };
 
@@ -125,7 +125,7 @@ export default function CustomEmailEditor({
         !Number(templateId) ||
         (Number(templateId) && Number(templateId) > templates.length)
       ) {
-        alert("Template not found");
+        toast.info("Template not found");
         router.push("/templates");
       } else {
         temp = templates[Number(templateId) - 1];
