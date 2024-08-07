@@ -3,9 +3,10 @@
 import React from "react";
 import ModeToggle from "@/components/ModeToggle";
 import { Button } from "@/components/ui/button";
-import { FileText, Home, Trash2 } from "lucide-react";
+import { FileText, Home, Settings, Trash2 } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { useTemplateContext } from "../template-context";
+import { toast } from "react-toastify";
 
 export default function Page() {
   const { templates, setTemplates } = useTemplateContext();
@@ -16,7 +17,7 @@ export default function Page() {
       window.localStorage.removeItem("templates");
       setTemplates([]);
     }
-    alert("All templates have been deleted.");
+    toast.success("All templates have been deleted.");
     router.push("/");
   };
 
@@ -31,17 +32,28 @@ export default function Page() {
             <Home className="w-4 h-4 mr-2" />
           </Button>
         </div>
-        <div>
-          <Button variant="outline" onClick={deleteAll}>
-            <Trash2 className="w-4 h-4 mr-2" /> Delete all Templates
-          </Button>
-        </div>
         <div className="flex items-center space-x-2">
           <ModeToggle />
+
+          <Button variant="outline" onClick={() => router.push("/settings")}>
+            <Settings className="w-4 h-4 mr-2" />
+          </Button>
         </div>
       </div>
       <hr className="text-gray-800" />
       <div className="p-5">
+        <div className="text-center">
+          <Button
+            variant="destructive"
+            onClick={() => {
+              if (confirm("Are you sure you want to delete all templates?")) {
+                deleteAll();
+              }
+            }}
+          >
+            <Trash2 className="w-4 h-4 mr-2" /> Delete all Templates
+          </Button>
+        </div>
         <h3 className="mt-8 scroll-m-20 text-2xl font-semibold text-center">
           Templates List
         </h3>

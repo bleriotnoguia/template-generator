@@ -12,23 +12,25 @@ export async function sendEmail({
   from,
   subject,
   html,
+  toName,
 }: {
   to: string;
   from: string;
   subject: string;
-  html: string;
+  html: any;
+  toName?: string;
 }) {
   const emailData = {
     Messages: [
       {
         From: {
           Email: from,
-          Name: "Blériot Noguia",
+          Name: "Email Template Generator",
         },
         To: [
           {
             Email: to,
-            Name: "Recipient Name",
+            Name: toName ?? "Recipient Name",
           },
         ],
         Subject: subject,
@@ -41,12 +43,16 @@ export async function sendEmail({
     const result = await mailjetClient
       .post("send", { version: "v3.1" })
       .request(emailData);
-    // alert('Email sent successfully!');
-    console.log("(server) Email sent successfully!");
-    return result;
+    return {
+      status: "success",
+      data: result.body,
+      message: "Email sent successfully",
+    };
   } catch (error) {
-    // alert('Error sending email');
-    console.error("(server) Error sending email:", error);
-    throw error;
+    console.error("Error sending email:", error);
+    return {
+      status: "error",
+      message: "Error sending email",
+    };
   }
 }
