@@ -80,8 +80,9 @@ export default function CustomEmailEditor({
           html: html,
         };
         try {
-          await sendEmail(emailDetails);
+          let res = await sendEmail(emailDetails);
           console.log("Email sent successfully!");
+          console.log("Response: ", res);
           // Perform any additional actions after successful email sending
         } catch (error) {
           console.error("Error sending email:", error);

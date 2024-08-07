@@ -32,7 +32,7 @@ export async function sendEmail({
           },
         ],
         Subject: subject,
-        HtmlPart: html,
+        HtmlPart: JSON.parse(JSON.stringify(html)),
       },
     ],
   };
