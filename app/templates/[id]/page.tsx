@@ -10,6 +10,7 @@ export default function Page({ params }: any) {
     () => import("@/components/CustomEmailEditor"),
     {
       loading: () => <p>Loading...</p>,
+      ssr: false,
     }
   );
 

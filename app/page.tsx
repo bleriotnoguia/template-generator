@@ -7,6 +7,7 @@ const CustomEmailEditor = dynamic(
   () => import("@/components/CustomEmailEditor"),
   {
     loading: () => <p>Loading...</p>,
+    ssr: false,
   }
 );
 
