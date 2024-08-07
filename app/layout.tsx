@@ -4,6 +4,7 @@ import { cn } from "@/lib/utils";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 import { TemplateProvider } from "./template-context";
+import { ToastContainer } from "react-toastify";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -42,6 +43,7 @@ export default function RootLayout({
         >
           <TemplateProvider>{children}</TemplateProvider>
         </ThemeProvider>
+        <ToastContainer />
       </body>
     </html>
   );

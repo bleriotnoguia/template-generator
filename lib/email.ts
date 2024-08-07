@@ -16,7 +16,7 @@ export async function sendEmail({
   to: string;
   from: string;
   subject: string;
-  html: string;
+  html: any;
 }) {
   const emailData = {
     Messages: [
@@ -41,12 +41,16 @@ export async function sendEmail({
     const result = await mailjetClient
       .post("send", { version: "v3.1" })
       .request(emailData);
-    // alert('Email sent successfully!');
-    console.log("(server) Email sent successfully!");
-    return result;
+    return {
+      status: "success",
+      data: result.body,
+      message: "Email sent successfully",
+    };
   } catch (error) {
-    // alert('Error sending email');
-    console.error("(server) Error sending email:", error);
-    throw error;
+    console.error("Error sending email:", error);
+    return {
+      status: "error",
+      message: "Error sending email",
+    };
   }
 }

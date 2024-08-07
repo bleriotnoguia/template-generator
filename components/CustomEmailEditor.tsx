@@ -12,6 +12,7 @@ import defaultTemplate from "../data/defaultTemplate.json";
 import { useTemplateContext } from "../app/template-context";
 import { Alert, AlertTitle } from "@/components/ui/alert";
 import { sendEmail } from "@/lib/email";
+import { toast } from "react-toastify";
 
 export default function CustomEmailEditor({
   templateId,
@@ -77,15 +78,20 @@ export default function CustomEmailEditor({
           to: "nstevebleriot@yahoo.fr",
           from: "contact@bleriotnoguia.com",
           subject: "Email from Template Generator",
-          html: "Simple test email",
+          html: html,
         };
         try {
-          let res = await sendEmail(emailDetails);
-          console.log("(client) Email sent successfully !");
-          console.log("Response: ", res);
           // Perform any additional actions after successful email sending
+          let { status, message } = await sendEmail(emailDetails);
+          if (status === "success") {
+            toast.success(message);
+          } else if (status === "error") {
+            toast.error(message);
+          } else {
+            toast(message);
+          }
         } catch (error) {
-          console.error("(client) Error sending email:", error);
+          console.error("Error sending email:", error);
           // Handle error case
         }
       }
