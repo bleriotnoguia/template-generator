@@ -30,10 +30,12 @@ export default function CustomEmailEditor({
     unlayer?.saveDesign((design: any) => {
       setTemplates([...templates, JSON.stringify(design)]);
       // also save in local storage
-      window.localStorage.setItem(
-        "templates",
-        JSON.stringify([...templates, JSON.stringify(design)])
-      );
+      if (typeof window !== "undefined") {
+        window.localStorage.setItem(
+          "templates",
+          JSON.stringify([...templates, JSON.stringify(design)])
+        );
+      }
       router.push("/templates/" + (templates.length + 1));
       alert("The design has been saved.");
     });
@@ -46,7 +48,9 @@ export default function CustomEmailEditor({
       templates[Number(templateId) - 1] = JSON.stringify(design);
       setTemplates(templates);
       // also save in local storage
-      window.localStorage.setItem("templates", JSON.stringify(templates));
+      if (typeof window !== "undefined") {
+        window.localStorage.setItem("templates", JSON.stringify(templates));
+      }
       alert("The design has been updated.");
     });
   };
