@@ -66,7 +66,50 @@ export default function CustomEmailEditor({
   };
 
   const sendTestEmail = () => {
-    alert("Logic to send a test email using Mailjet/Mailgun");
+    const unlayer = emailEditorRef.current?.editor;
+
+    unlayer?.exportHtml((data: any) => {
+      const { html } = data;
+      // Mailjet API integration
+      fetch("https://api.mailjet.com/v3.1/send", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization:
+            "Basic " +
+            btoa(
+              "6c5a769efc45d799d13a22a3f22a1506:28e72cdd08c7bd24186cdbf7a2fb8a02"
+            ),
+        },
+        body: JSON.stringify({
+          Messages: [
+            {
+              From: {
+                Email: "nstevebleriot@yahoo.fr",
+                Name: "Email Temp Generator",
+              },
+              To: [
+                {
+                  Email: "contact@bleriotnoguia.com",
+                  Name: "Blériot Noguia",
+                },
+              ],
+              Subject: "Test Email",
+              HTMLPart: html,
+            },
+          ],
+        }),
+      })
+        .then((response) => response.json())
+        .then((data) => {
+          console.log("Success:", data);
+          alert("Test email sent successfully.");
+        })
+        .catch((error) => {
+          console.error("Error:", error);
+          alert("An error occurred while sending the test email.");
+        });
+    });
   };
 
   const onLoad: EmailEditorProps["onLoad"] = (unlayer) => {
