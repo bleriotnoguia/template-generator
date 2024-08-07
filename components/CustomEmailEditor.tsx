@@ -99,6 +99,7 @@ export default function CustomEmailEditor({
             },
           ],
         }),
+        mode: "cors",
       })
         .then((response) => response.json())
         .then((data) => {
