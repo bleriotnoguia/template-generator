@@ -2,14 +2,22 @@
 
 import ModeToggle from "@/components/ModeToggle";
 import { Button } from "@/components/ui/button";
-import { FileText, Home } from "lucide-react";
+import { FileText, Home, Trash2 } from "lucide-react";
 import { useRouter } from "next/navigation";
 import React from "react";
 import { useTemplateContext } from "../template-context";
 
 export default function Page() {
-  const { templates } = useTemplateContext();
+  const { templates, setTemplates } = useTemplateContext();
   const router = useRouter();
+
+  const deleteAll = () => {
+    localStorage.removeItem("templates");
+    setTemplates([]);
+    alert("All templates have been deleted.");
+    router.push("/");
+  };
+
   return (
     <div>
       <div
@@ -21,6 +29,11 @@ export default function Page() {
             <Home className="w-4 h-4 mr-2" />
           </Button>
         </div>
+        <div>
+          <Button variant="outline" onClick={deleteAll}>
+            <Trash2 className="w-4 h-4 mr-2" /> Delete all Templates
+          </Button>
+        </div>
         <div className="flex items-center space-x-2">
           <ModeToggle />
         </div>
@@ -28,7 +41,7 @@ export default function Page() {
       <hr className="text-gray-800" />
       <div className="p-5">
         <h3 className="mt-8 scroll-m-20 text-2xl font-semibold text-center">
-          Liste des Templates
+          Templates List
         </h3>
         <div className="flex justify-center mt-5">
           {templates.map((template, index) => (
